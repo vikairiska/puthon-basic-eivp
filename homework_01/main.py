@@ -40,11 +40,11 @@ def prime(num):
     return True
 def filter_numbers(*numbers, filter = 'even'):
     if filter == 'even':
-        return [x for x in numbers if isinstance(x, int) and x % 2 == 0]
-    elif filter == 'odd':
-        return [x for x in numbers if isinstance(x, int) and x % 2 == 1]
+        return [x for x in numbers if x%2 == 0]
+    elif filter == 'even':
+        return [x for x in numbers if x%2 == 1]
     else:
-        return [x for x in numbers if isinstance(x, int) and prime(x)]
+        return [x for x in numbers if prime(x)]
 
 numbers = [1,4,5,7,9,1,0,10,13,21]
 
