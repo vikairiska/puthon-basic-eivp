@@ -38,20 +38,18 @@ def prime(num):
             return False
         i += 6
     return True
-def filter_numbers(*numbers, filter = 'even'):
-    if filter == 'even':
-        return [x for x in numbers if x%2 == 0]
-    elif filter == 'even':
-        return [x for x in numbers if x%2 == 1]
-    else:
-        return [x for x in numbers if prime(x)]
+def filter_numbers(numbers, filter_type):
+    result = []
+    for num in numbers:
+        if filter_type == ODD and num % 2 == 1:
+            result.append(num)
+        elif filter_type == EVEN and num % 2 == 0:
+            result.append(num)
+        elif filter_type == PRIME and prime(num):
+            result.append(num)
+    return result
 
-numbers = [1,4,5,7,9,1,0,10,13,21]
-
-even_num = filter_numbers(numbers, 'even')
-odd_num = filter_numbers(numbers, 'odd')
-prime_num = filter_numbers(numbers, 'prime')
-
-print(even_num)
-print(odd_num)
-print(prime_num)
+numbers = [1, 2, 3]
+print(filter_numbers(numbers, ODD))
+print(filter_numbers(numbers, EVEN))
+print(filter_numbers(numbers, PRIME))
